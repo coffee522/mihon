@@ -25,6 +25,7 @@ class NetworkHelper(
 
     private val clientBuilder: OkHttpClient.Builder = run {
         val builder = OkHttpClient.Builder()
+            .eventListenerFactory(NetworkTraceEventListener.factory)
             .cookieJar(cookieJar)
             .connectTimeout(30.seconds)
             .readTimeout(30.seconds)
